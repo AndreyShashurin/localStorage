@@ -1,0 +1,11 @@
+<div class="container">
+	<div class="card">
+	  <div class="card-body">
+	    <p class="card-text text-secondary"><small>{{arraylocalStorage[0].docDate | date :  "dd.MM.yyyy"}}</small></p>
+	    <h4 class="card-title">{{arraylocalStorage[0].docName}}</h4>
+	    <p class="card-text">{{arraylocalStorage[0].author?.fio}}</p>
+	  </div>
+	</div>
+	<br>
+<a [routerLink]="['/']" class="btn btn-primary btn-sm">Назад</a>
+</div>

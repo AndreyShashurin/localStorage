@@ -1,0 +1,33 @@
+<div class="container">
+	<a [routerLink]="['add/']" class="add-new btn btn-primary btn-sm">Создать новую</a>
+	<div class="card" *ngFor="let localStorage of pagedItems">
+	  <div class="card-body">
+	    <p class="card-text text-secondary"><small>{{localStorage.docDate}}</small></p>
+	    <h4 class="card-title">{{localStorage.docName}}</h4>
+	    <p class="card-text">{{localStorage.author?.fio}}</p>
+	    <a [routerLink]="['update/', localStorage.id ]" class="btn btn-outline-success btn-sm">Редактировать</a>
+        <a [routerLink]="['detail/', localStorage.id ]" class="btn btn-outline-primary btn-sm">Просмотр</a>
+        <a (click)="delete(localStorage)" class="btn btn-outline-danger btn-sm">Удалить</a>
+	  </div>
+	</div>
+    <div class="text-center">
+        <ul  class="pagination">
+            <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                <a class="page-link" (click)="setPage(1)">Первая</a>
+        	</li>
+            <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+                <a class="page-link" (click)="setPage(pager.currentPage - 1)">Предыдущая</a>
+            </li>
+            <li class="page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                <a class="page-link" (click)="setPage(page)">{{page}}</a>
+            </li>
+            <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a class="page-link" (click)="setPage(pager.currentPage + 1)">Следующая</a>
+            </li>
+            <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                <a class="page-link" (click)="setPage(pager.totalPages)">Последняя</a>
+            </li>
+        </ul>
+    </div>
+</div>
+

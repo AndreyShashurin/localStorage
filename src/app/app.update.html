@@ -1,0 +1,16 @@
+<form [formGroup]="detailsForm" novalidate>
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label>Ф.И.О</label>
+      <input type="text" class="form-control" placeholder="Имя" value="{{arraylocalStorage[0].author?.fio}}" [formControl]="detailsForm.get('name')">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label>Название</label>
+      <input type="text" class="form-control" placeholder="Название" value="{{arraylocalStorage[0].docName}}"  [formControl]="detailsForm.get('docName')" >
+    </div>
+  </div>
+</form>
+ <button class="btn btn-primary btn-sm" type="submit" (click)="save($event); false">Обновить</button>
+<a [routerLink]="['/']" class="add-new btn btn-secondary btn-sm">Назад</a>
